@@ -17,12 +17,12 @@ import { tests } from "../data/tests";
 
 // Initialize Firebase
 initializeApp({
-	apiKey: "AIzaSyCHBFHNk2EwkmV_mzOWeEsNNlFQjcYjRHU",
+	apiKey: `${process.env.REACT_APP_FIREBASE_STORAGE_KEY}`,
 	authDomain: "speak-habla-pof.firebaseapp.com",
 	projectId: "speak-habla-pof",
 	storageBucket: "speak-habla-pof.appspot.com",
 	messagingSenderId: "647690134521",
-	appId: "1:647690134521:web:a70bcea9d0ff255ec79328",
+	appId: `${process.env.REACT_APP_FIREBASE_APP_ID}`,
 });
 
 const db = getFirestore();
