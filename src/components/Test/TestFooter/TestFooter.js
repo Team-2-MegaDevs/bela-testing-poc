@@ -1,7 +1,9 @@
 const TestFooter = () => {
-    return ( <div>
-        
-    </div> );
+    return ( 
+    <div className="footer-row">
+        <button>NextQuestion</button>
+    </div> 
+    );
 }
  
 export default TestFooter;
