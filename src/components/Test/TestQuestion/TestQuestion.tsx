@@ -4,13 +4,13 @@ export default class TestQuestion extends React.Component <{}> {
   render() {
     return (
       <div className="">
-        <div>Question:</div>
-        <div>Insert Question from bank</div>
-        <div className="answerList">
-            <div>Choice A</div>
-            <div>Choice B</div>
-            <div>Choice C</div>
-            <div>Choice D</div>
+        <div style={{ display: 'flex', flexDirection: 'row'}}>Question:</div>
+        
+        <div style={{ width: "100vw", left: 0, display: 'flex', flexDirection: 'column'}}>
+            <div style={{ display: 'flex', flexDirection: 'row'}}>Choice A</div>
+            <div style={{ display: 'flex', flexDirection: 'row'}}>Choice B</div>
+            <div style={{ display: 'flex', flexDirection: 'row'}}>Choice C</div>
+            <div style={{ display: 'flex', flexDirection: 'row'}}>Choice D</div>
         </div>
       </div>
     );
