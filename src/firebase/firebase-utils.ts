@@ -1,5 +1,4 @@
 // Import the functions you need from the SDKs you need
-import { map } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import {
 	getFirestore,
@@ -7,9 +6,8 @@ import {
 	addDoc,
 	doc,
 	writeBatch,
-	query,
-	where,
 	getDoc,
+	getDocs,
 } from "firebase/firestore";
 
 // import { writeBatch, doc } from "firebase/firestore";
@@ -27,6 +25,8 @@ initializeApp({
 
 const db = getFirestore();
 
+const testCollectionRef = collection(db, "test");
+
 // Add a new document with a generated id.
 export async function addDataToDB(
 	collectionName: string,
@@ -40,8 +40,13 @@ export async function addDataToDB(
 	console.log("Document written with ID: ", docRef.id);
 }
 
-export async function getDataFromDB(level: string, set: string) {
-	const ref = await doc(collection(db, "tests"), "reading", level, set);
+export async function getDataFromDB(
+	testType: string,
+	level: string,
+	set: string
+) {
+	console.log(testType, level, set);
+	const ref = await doc(collection(db, "tests"), testType, level, set);
 
 	const snap = await getDoc(ref);
 
@@ -51,47 +56,34 @@ export async function getDataFromDB(level: string, set: string) {
 		// doc.data() will be undefined in this case
 		console.log("No such document!");
 	}
+
+	return snap.data();
 }
-
-// export async function getCollection() {
-// 	const collectionRef = await collection(db, "tests");
-
-// 	const docRef = doc(collectionRef, "w3OVh0vuyAzuNXkaUOc5")
-
-// 	console.log(collectionRef);
-
-// // const data = await getDocs("tests");
-// const docSnap = await getDoc(docRef);
-
-// if (docSnap.exists()) {
-// 	console.log("Document data:", docSnap.data());
-// } else {
-// 	// doc.data() will be undefined in this case
-// 	console.log("No such document!");
-// }
 
 export async function sendDataInBatch() {
 	// Get a new write batch
 	const batch = writeBatch(db);
 
 	// Set the value of reading'
-	const docRef = doc(db, "tests", "reading", "A2", "set1");
+	const docRef = doc(testCollectionRef, "grammar", "A1", "set1");
 	batch.set(docRef, tests.reading.A2.set1);
 
 	// Commit the batch
 	await batch.commit();
 }
 
-// export async function getDataFromDB() {
-// 	const docRef = await doc(db, "tests", "w3OVh0vuyAzuNXkaUOc5");
-
-// 	// const data = await getDocs("tests");
-// 	const docSnap = await getDoc(docRef);
-
-// 	if (docSnap.exists()) {
-// 		console.log("Document data:", docSnap.data());
-// 	} else {
-// 		// doc.data() will be undefined in this case
-// 		console.log("No such document!");
-// 	}
+// working on the modify Answer functionality
+// export async function modifyIsAnswered(questionId) {
+// 	questions[questionId].isAnswered = true;
 // }
+
+//this function allows us to get all the sets available for a specific testType and level
+export const getAllSets = async (testType: string, level: string) => {
+	const querySnapshot = await getDocs(collection(db, "tests", testType, level));
+	let sets: string[] = [];
+	querySnapshot.forEach(doc => {
+		sets.push(doc.id);
+	});
+
+	return sets;
+};
