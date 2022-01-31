@@ -1,31 +1,36 @@
-import React, { useEffect } from "react";
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { addDataToDB, getDataFromDB } from "./firebase/firebase-utils";
-// import { tests } from "./data/tests";
-import { sendDataInBatch } from "./firebase/firebase-utils";
+import {
+	getAllSets,
+	getDataFromDB,
+	sendDataInBatch,
+} from "./firebase/firebase-utils";
+import { DataProvider } from "./firebase/contextHook";
 
 function App() {
-	useEffect(() => {
-		// sendDataInBatch();
-		// getDataFromDB("A2", "set1");
-	}, []);
+	// useEffect(() => {
+	// 	// sendDataInBatch();
+	// 	// getting an specific set from DB.
+	// 	// getDataFromDB("A2", "set1", "reading");
+	// 	getAllSets("grammar", "A2").then(data => console.log(data));
+	// }, []);
+
 	return (
 		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'
-				>
-					Learn React
-				</a>
-			</header>
+			<DataProvider>
+				<header className='App-header'>
+					<img src={logo} className='App-logo' alt='logo' />
+					<a
+						className='App-link'
+						href='https://reactjs.org'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						Learn React
+					</a>
+				</header>
+			</DataProvider>
 		</div>
 	);
 }
