@@ -4,7 +4,6 @@ import { getDataFromDB, getAllSets } from "./firebase-utils";
 const DataContext = createContext();
 
 const DataProvider = props => {
-	const [hasFinishedSet, setFinishedSet] = useState(false);
 	const [testType, setTestType] = useState("grammar");
 	const [level, setLevel] = useState("A1");
 	const [allSets, setAllSets] = useState([]);
@@ -25,14 +24,10 @@ const DataProvider = props => {
 			// list of available sets
 			getDataFromDB(testType, level, `set${randomNumber}`);
 		});
-	}, []); //useEffect to monitor if the user has already finished answering the set of questions
-	useEffect(() => {}, [hasFinishedSet]);
+	}, [level]);
 
 	return (
-		<DataContext.Provider
-			value={{ setFinishedSet, setOfQuestions }}
-			{...props}
-		/>
+		<DataContext.Provider value={{ setLevel, setOfQuestions }} {...props} />
 	);
 };
 
