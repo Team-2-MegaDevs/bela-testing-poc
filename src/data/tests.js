@@ -4,6 +4,255 @@
 
 export const tests = {
 	reading: {
+		A1: {
+			reading: "On Monday, Tom gets up at 7 o'clock. Then he reads his newspaper in the kitchen. He has breakfast at 8:30 and then he calls his boss in Scotland. In the afternoon, at 4:00, Tom plays tennis with his sister and after that, they eat dinner at a restaurant. At 6:00, Tom swims for one hour and then he goes by bike to his brother´s house. They talk and listen to music. Tom watches television in the evening and drinks a cup of warm tea. He goes to bed at 11.30.",
+			option1: {
+				questions: [
+					{
+						question:
+							"Where does Tom have breakfast?",
+						options: ["In the kitchen", "In his bedroom", "In the lounge"],
+						type: "single_choice",
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Who does he call in the morning?",
+						options: ["His sister", "His boss", "His brother"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"How long does Tom swim for?",
+						options: ["One hour", "Two hours", "Six hours"],
+						type: "single_choice",
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"How does Tom go to his brother's house?",
+						options: ["By bike", "By car", "On foot"],
+						type: "single_choice",
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"What does Tom drink in the evening?",
+						options: ["Wine", "Beer", "Tea"],
+						type: "single_choice",
+						correct_answer: 2,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"What time does Tom go to bed?",
+						options: ["11pm", "11:30pm", "Midnight"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+
+				]
+			},
+			option2: {
+				reading: "On Monday, Tom gets up at 7 o'clock. Then he reads his newspaper in the kitchen. He has breakfast at 8:30 and then he calls his boss in Scotland. In the afternoon, at 4:00, Tom plays tennis with his sister and after that, they eat dinner at a restaurant. At 6:00, Tom swims for one hour and then he goes by bike to his brother´s house. They talk and listen to music. Tom watches television in the evening and drinks a cup of warm tea. He goes to bed at 11.30.",
+				questions: [
+					{
+						question:
+							"Tom gets up at 7 am on Mondays.",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+
+					{
+						question:
+							"Tom reads the newspaper in the loung.",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"His father lives in Scotland",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Tom plays tennis with his sister.",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Tom and his sister eat before playing tennis.",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Tom goes swimming at five o'clock.",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					
+					
+				]
+			},
+			option3: {
+				reading: "On Monday, Tom gets up at 7 o'clock. Then he reads his newspaper in the kitchen. He has breakfast at 8:30 and then he calls his boss in Scotland. In the afternoon, at 4:00, Tom plays tennis with his sister and after that, they eat dinner at a restaurant. At 6:00, Tom swims for one hour and then he goes by bike to his brother´s house. They talk and listen to music. Tom watches television in the evening and drinks a cup of warm tea. He goes to bed at 11.30.",
+				questions: [
+					{
+						question:
+							"Tom drinks a glass of wine in the evening.",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+
+					{
+						question:
+							"Tom goes to bed at 11:30pm.",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Where does his boss live?",
+						options: ["In England", "In his brother's house", "In Scotland"],
+						type: "single_choice",
+						correct_answer: 2,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"What time does he play tennis with his sister?",
+						options: ["4pm", "6pm", "11:40am"],
+						type: "single_choice",
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Tom drives to his brother's house.",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Tom and his brother listen to music.",
+						options: ["True", "False"],
+						type: "single_choice",
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					
+					
+				]
+			},
+			option4: {
+				reading: "Famous people’s first jobs Not all famous people were born into famous families. A lot of them had normal lives before becoming famous. They also had jobs like the rest of us. Here are just a few: Former President Obama worked at an ice-cream parlor selling ice-cream cones. He was in high school in Honolulu, Hawaii and said it was quite hard. He also said that the job taught him about responsibility, hard work and how to spend time with work, friends and family. Brad Pitt had a weird job when he was younger. He worked as a chicken! That’s right. He worked at a restaurant called El Pollo Loco in Hollywood, and his job was to dress up like a chicken and wave at the cars on the road. In fact, if you go on a “See the Stars” tour in Hollywood, many of them will take you past the same restaurant where Brad used to work. Maybe the strangest path in life was that of Pope Francis. When he was young in Argentina, he worked several jobs before joining the Jesuits and dedicating his life to religion. He worked as a cleaner sweeping floors, a chemical tester at a laboratory and as a bouncer at a bar! Yes, the pope was the person responsible for security at a bar in case anything wrong happened. Can you imagine?!",
+				questions: [
+					{
+						question:
+							"Who helped protect people?",
+						options: ["President Obama", "Brad Pitt", "Pope Francis"],
+						type: "single_choice",
+						correct_answer: 2,
+						isAnswered: false,
+						mediaURL: null,
+					},
+
+					{
+						question:
+							"Who pretended to be an animal?",
+						options: ["President Obama", "Brad Pitt", "Pope Francis"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Who learned a lot from their first job?",
+						options: ["President Obama", "Brad Pitt", "Pope Francis"],
+						type: "single_choice",
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Who worked in advertising?",
+						options: ["President Obama", "Brad Pitt", "Pope Francis"],
+						type: "single_choice",
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Who thought the job was difficult?",
+						options: ["President Obama", "Brad Pitt", "Pope Francis"],
+						type: "single_choice",
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question:
+							"Who had a couple of different jobs",
+						options: ["President Obama", "Brad Pitt", "Pope Francis"],
+						type: "single_choice",
+						correct_answer: 2,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					
+					
+				]
+			},
+		},
+
 
 	},
 	grammar: {
@@ -376,7 +625,7 @@ export const tests = {
 						mediaURL: null,
 					},
 				]
-				
+
 			},
 			step5: {
 				questions: [
@@ -488,7 +737,7 @@ export const tests = {
 							"What time is it?",
 						options: ["It's half past three.", "It's two hours thirty.", "It's two thirty.", "It's half past two."],
 						type: "double_choice",
-						correct_answer: [2,3],
+						correct_answer: [2, 3],
 						isAnswered: false,
 						mediaURL: null,
 					},
