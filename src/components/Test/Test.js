@@ -6,9 +6,9 @@ const Test = () => {
     return (
         <div>
             <div >
-                <TestHeader />
-                <TestQuestion />
-                <TestFooter />
+                <TestHeader/>
+                <TestQuestion/>
+                <TestFooter/>
             </div>
         </div>
     );
