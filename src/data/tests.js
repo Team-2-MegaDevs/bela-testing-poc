@@ -228,6 +228,93 @@ export const tests = {
 				],
 			},
 		},
+		A2: {
+			reading:
+				"Ancient robots <br> <br>What do you think of when you read the word ‘robot’? Many people think about big machines in car factories or futuristic monsters in films. Few of us think about the past. But people were building incredible machines with human abilities hundreds of years ago! <br> For example, Egyptian texts from 1100 BC mention moving statues which ‘chose’ the next king. None of these statues exists, but probably they were built using the ancient Egyptians’ mechanical technology.<br>Another ancient robot was a big robotic arm called “The Claw”. The ancient Greek writer Polybius wrote about it in 213 BC. It was built during a war with the Romans, and it hung over the city wall towards the sea. When a Roman ship came close, the arm picked up the front of the ship and lifted it into the air. Then the boat fell backwards into the sea and sank. Again, we don’t know if the machine was really built, but it was possible with Ancient Greek technology.<br> Another ancient Greek inventor, Philon of Byzantium, built a female robot at about the same time. If someone placed a cup in her hand, it mixed water and wine to make a drink. But the robot wasn’t popular because people didn’t need robots to work. They had lots of slaves. <br> The famous artist Leonardo da Vinci loved designing robots. Few of his ideas were built, but his plans are very detailed. One modern-day robot engineer, Mark Rosheim, still uses them to get ideas when designing robots for NASA! One of da Vinci’s robots was a lion. He built it for the king of France in 1515. It could walk and present flowers! In 2009, engineers used the plans to build it again. It worked perfectly. <br>After that, more and more mechanical robots were built. They did more and more difficult tasks, such as playing the flute, writing and drawing a picture. Although modern technology has moved on, these historical robots still amaze people today.",
+			option1: {
+				questions: [
+					{
+						question: "People used _____ against their enemy",
+						options: ["Ancient Egyptian Statues", "The Claw", "IPhilon of Byzantium’s robot", "Mark Rosheim’s robots", "Leonardo da Vinci’s lion", "None of these robots"],
+						isMultipleChoice: false,
+						correct_answer: 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question: "Some people built _____ again recently.",
+						options: ["Ancient Egyptian Statues", "The Claw", "IPhilon of Byzantium’s robot", "Mark Rosheim’s robots", "Leonardo da Vinci’s lion", "None of these robots"],
+						isMultipleChoice: false,
+						correct_answer: 4,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question: "_____ use(s) ideas from hundreds of years ago.",
+						options: ["Ancient Egyptian Statues", "The Claw", "IPhilon of Byzantium’s robot", "Mark Rosheim’s robots", "Leonardo da Vinci’s lion", "None of these robots"],
+						isMultipleChoice: false,
+						correct_answer: 3,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question: "_____ could make drinks for people.",
+						options: ["Ancient Egyptian Statues", "The Claw", "IPhilon of Byzantium’s robot", "Mark Rosheim’s robots", "Leonardo da Vinci’s lion", "None of these robots"],
+						isMultipleChoice: false,
+						correct_answer: 2,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question: "People didn’t need _____ because they had forced workers.",
+						options: ["Ancient Egyptian Statues", "The Claw", "IPhilon of Byzantium’s robot", "Mark Rosheim’s robots", "Leonardo da Vinci’s lion", "None of these robots"],
+						isMultipleChoice: false,
+						correct_answer: 2,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					
+				],
+			},
+			option2: {
+				reading:
+				"Ancient robots <br> <br>What do you think of when you read the word ‘robot’? Many people think about big machines in car factories or futuristic monsters in films. Few of us think about the past. But people were building incredible machines with human abilities hundreds of years ago! <br> For example, Egyptian texts from 1100 BC mention moving statues which ‘chose’ the next king. None of these statues exists, but probably they were built using the ancient Egyptians’ mechanical technology.<br>Another ancient robot was a big robotic arm called “The Claw”. The ancient Greek writer Polybius wrote about it in 213 BC. It was built during a war with the Romans, and it hung over the city wall towards the sea. When a Roman ship came close, the arm picked up the front of the ship and lifted it into the air. Then the boat fell backwards into the sea and sank. Again, we don’t know if the machine was really built, but it was possible with Ancient Greek technology.<br> Another ancient Greek inventor, Philon of Byzantium, built a female robot at about the same time. If someone placed a cup in her hand, it mixed water and wine to make a drink. But the robot wasn’t popular because people didn’t need robots to work. They had lots of slaves. <br> The famous artist Leonardo da Vinci loved designing robots. Few of his ideas were built, but his plans are very detailed. One modern-day robot engineer, Mark Rosheim, still uses them to get ideas when designing robots for NASA! One of da Vinci’s robots was a lion. He built it for the king of France in 1515. It could walk and present flowers! In 2009, engineers used the plans to build it again. It worked perfectly. <br>After that, more and more mechanical robots were built. They did more and more difficult tasks, such as playing the flute, writing and drawing a picture. Although modern technology has moved on, these historical robots still amaze people today.",
+				questions: [
+					{
+						question: "_____ could play a musical instrument.",
+						options: ["Ancient Egyptian Statues", "The Claw", "IPhilon of Byzantium’s robot", "Mark Rosheim’s robots", "Leonardo da Vinci’s lion", "None of these robots"],
+						isMultipleChoice: false,
+						correct_answer: 5,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question: "We don’t know if _____ and _____ were built. <br> <strong> Choose TWO correct answers</strong>",
+						options: ["Ancient Egyptian Statues", "The Claw", "IPhilon of Byzantium’s robot", "Mark Rosheim’s robots", "Leonardo da Vinci’s lion", "None of these robots"],
+						isMultipleChoice: false,
+						correct_answer: 0 && 1,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question: "People used _____ when they needed a new king.",
+						options: ["Ancient Egyptian Statues", "The Claw", "IPhilon of Byzantium’s robot", "Mark Rosheim’s robots", "Leonardo da Vinci’s lion", "None of these robots"],
+						isMultipleChoice: false,
+						correct_answer: 0,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					{
+						question: "People didn’t need _____ because they had forced workers.",
+						options: ["Ancient Egyptian Statues", "The Claw", "IPhilon of Byzantium’s robot", "Mark Rosheim’s robots", "Leonardo da Vinci’s lion", "None of these robots"],
+						isMultipleChoice: false,
+						correct_answer: 2,
+						isAnswered: false,
+						mediaURL: null,
+					},
+					
+				],
+			},
 	},
 	grammar: {
 		A1: {
