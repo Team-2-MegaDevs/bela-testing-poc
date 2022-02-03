@@ -1,5 +1,11 @@
 import { useState, useEffect, useContext, createContext, React } from "react";
-import { getDataFromDB, getAllSets } from "./firebase-utils";
+import { grammarQuestions } from "../data/grammarQuestions";
+import {
+	getDataFromDB,
+	getAllSets,
+	sendDataInBatch,
+	addDataToDB,
+} from "./firebase-utils";
 
 const DataContext = createContext();
 
@@ -10,21 +16,25 @@ const DataProvider = props => {
 
 	const [setOfQuestions, setQuestions] = useState([]);
 
+	// Grammar - 49 questions
+	// Reading - 27 questions
+	// Listening - 24 questions
+
 	//getting the questions once the test starts
-	useEffect(() => {
-		getAllSets(testType, level).then(setList => {
-			console.log(setList);
-			setAllSets(setList);
-			//getting a random set of questions inside the available sets
-			const randomNumber = Math.floor(
-				Math.random() * (setList.length - 1 + 1) + 1
-			);
-			console.log(randomNumber);
-			//calling the function to get the actual set of questions once we have the
-			// list of available sets
-			getDataFromDB(testType, level, `set${randomNumber}`);
-		});
-	}, [level]);
+	// useEffect(() => {
+	// 	getAllSets(testType, level).then(setList => {
+	// 		console.log(setList);
+	// 		setAllSets(setList);
+	// 		//getting a random set of questions inside the available sets
+	// 		const randomNumber = Math.floor(
+	// 			Math.random() * (setList.length - 1 + 1) + 1
+	// 		);
+	// 		console.log(randomNumber);
+	// 		//calling the function to get the actual set of questions once we have the
+	// 		// list of available sets
+	// 		getDataFromDB(testType, level, `set${randomNumber}`);
+	// 	});
+	// }, [level]);
 
 	return (
 		<DataContext.Provider value={{ setLevel, setOfQuestions }} {...props} />

@@ -16,25 +16,24 @@ import { tests } from "../data/tests";
 // Initialize Firebase
 initializeApp({
 	apiKey: `${process.env.REACT_APP_FIREBASE_STORAGE_KEY}`,
-	authDomain: "speak-habla-pof.firebaseapp.com",
-	projectId: "speak-habla-pof",
-	storageBucket: "speak-habla-pof.appspot.com",
-	messagingSenderId: "647690134521",
+	authDomain: "speak-habla-poc.firebaseapp.com",
+	projectId: "speak-habla-poc",
+	storageBucket: "speak-habla-poc.appspot.com",
+	messagingSenderId: "1068238770911",
 	appId: `${process.env.REACT_APP_FIREBASE_APP_ID}`,
 });
 
 const db = getFirestore();
 
-const testCollectionRef = collection(db, "test");
-
 // Add a new document with a generated id.
 export async function addDataToDB(
 	collectionName: string,
+	document: string,
 	subCollection: string,
 	dataToAdd: Object
 ) {
 	const docRef = await addDoc(
-		collection(db, collectionName, subCollection),
+		collection(db, collectionName, document, subCollection),
 		dataToAdd
 	);
 	console.log("Document written with ID: ", docRef.id);
@@ -60,22 +59,21 @@ export async function getDataFromDB(
 	return snap.data();
 }
 
-export async function sendDataInBatch() {
+export async function sendDataInBatch(
+	collection: "string",
+	document: "string",
+	dataToAdd: object
+) {
 	// Get a new write batch
 	const batch = writeBatch(db);
 
 	// Set the value of reading'
-	const docRef = doc(testCollectionRef, "grammar", "A1", "set1");
-	batch.set(docRef, tests.reading.A2.set1);
+	const docRef = doc(db, collection, document);
+	batch.set(docRef, dataToAdd);
 
 	// Commit the batch
 	await batch.commit();
 }
-
-// working on the modify Answer functionality
-// export async function modifyIsAnswered(questionId) {
-// 	questions[questionId].isAnswered = true;
-// }
 
 //this function allows us to get all the sets available for a specific testType and level
 export const getAllSets = async (testType: string, level: string) => {
