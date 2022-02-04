@@ -8,10 +8,10 @@ import {
 	writeBatch,
 	getDoc,
 	getDocs,
+	query,
+	limit,
+	where,
 } from "firebase/firestore";
-
-// import { writeBatch, doc } from "firebase/firestore";
-import { tests } from "../data/tests";
 
 // Initialize Firebase
 initializeApp({
@@ -76,8 +76,14 @@ export async function sendDataInBatch(
 }
 
 //this function allows us to get all the sets available for a specific testType and level
-export const getAllSets = async (testType: string, level: string) => {
-	const querySnapshot = await getDocs(collection(db, "tests", testType, level));
+export const getAllSets = async (
+	collectionName: string,
+	testType: string,
+	level: string
+) => {
+	const querySnapshot = await getDocs(
+		collection(db, collectionName, testType, level)
+	);
 	let sets: string[] = [];
 	querySnapshot.forEach(doc => {
 		sets.push(doc.id);
@@ -85,3 +91,30 @@ export const getAllSets = async (testType: string, level: string) => {
 
 	return sets;
 };
+
+//querying questions from the database
+export async function getQuestions(
+	collectionName: string,
+	level: string,
+	qtyQuestions: number
+) {
+	// if collection is grammar, querying differently
+	const q = query(
+		collection(db, collectionName, level, "questions"),
+		limit(qtyQuestions)
+	);
+
+	let questions: any = [];
+	const questionDocs = await getDocs(q);
+	questionDocs.forEach(doc => {
+		const questionObj: { [key: string]: object } = {};
+		questionObj[doc.id] = doc.data();
+		questions.push(questionObj);
+	});
+
+	// if the collection is any other we have a different method to query questions ... still working on this logic
+	// 	q = await query(collection(db, collectionName), where('__name__', ">=", level ))
+	// )
+
+	return questions;
+}
