@@ -15,6 +15,8 @@ const DataProvider = props => {
 
 	const [setOfQuestions, setQuestions] = useState([]);
 
+	const [testStatus, setTestStatus] = useState("startStage");
+
 	// (A1,A2,B1,B2,C1);
 	// Grammar - 49 questions - Approximately 10 questions per level
 	// Reading - 27 questions - Approximately 5 questions per level

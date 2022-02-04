@@ -1,4 +1,12 @@
 const TestQuestion = () => {
+/**
+ * if status = "startP"
+ * " Welcome to BELA "
+ * if status = "firstQuestionP" or "midQuestionP" or "finalQuestionP"
+ * <Question/> + <Choices/>
+ * if status = "resultsP"
+ * <ResultData/>
+ */
     return ( <div className="">
     <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px'}}>Question:</div>
     
