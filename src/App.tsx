@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import { DataProvider } from "./firebase/contextHook";
+import { DataProvider } from "./context/contextHook";
 
 function App() {
 	return (

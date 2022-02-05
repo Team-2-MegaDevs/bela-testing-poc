@@ -1,11 +1,15 @@
 import { useState, useEffect, useContext, createContext, React } from "react";
+import useSessionStorage from "../hooks/useSessionStorage";
+
 import {
 	getDataFromDB,
 	getAllSets,
 	sendDataInBatch,
 	addDataToDB,
 	getQuestions,
-} from "./firebase-utils";
+} from "../firebase/firebase-utils";
+
+import AES from "crypto-js/aes";
 
 const DataContext = createContext();
 
@@ -13,7 +17,7 @@ const DataProvider = props => {
 	const [testType, setTestType] = useState("grammar");
 	const [level, setLevel] = useState("A1");
 
-	const [setOfQuestions, setQuestions] = useState([]);
+	const [setOfQuestions, setQuestions] = useSessionStorage("data", []);
 
 	// (A1,A2,B1,B2,C1);
 	// Grammar - 49 questions - Approximately 10 questions per level
@@ -24,7 +28,12 @@ const DataProvider = props => {
 	useEffect(() => {
 		if (testType === "grammar") {
 			getQuestions("grammarQuestions", "A1", 10).then(questions => {
-				setQuestions(questions);
+				// stringfying and encrypting the object before saving to the section storage
+				const encryptedQuestions = AES.encrypt(
+					JSON.stringify(questions),
+					`${process.env.REACT_APP_CRYPTO_KEY}`
+				).toString();
+				setQuestions(encryptedQuestions);
 				console.log(questions);
 			});
 		}
