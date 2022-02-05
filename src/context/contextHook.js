@@ -9,7 +9,7 @@ import {
 	getQuestions,
 } from "../firebase/firebase-utils";
 
-import AES from "crypto-js/aes";
+import { CryptoJS, AES } from "crypto-js";
 
 const DataContext = createContext();
 
@@ -50,6 +50,18 @@ const DataProvider = props => {
 		// 	getDataFromDB(testType, level, `set${randomNumber}`);
 		// });
 	}, [level]);
+
+	//this function is used to access each individually question from session storage and decrypt it.
+	function decryptQuestion(questionNumber) {
+		const questions = sessionStorage.getItem("data");
+		const bytes = AES.decrypt(questions, `${process.env.REACT_APP_CRYPTO_KEY}`);
+		const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+		const question = decryptedData[questionNumber];
+
+		console.log(question);
+
+		return question;
+	}
 
 	return (
 		<DataContext.Provider value={{ setLevel, setOfQuestions }} {...props} />
