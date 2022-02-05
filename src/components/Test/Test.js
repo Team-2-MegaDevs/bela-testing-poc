@@ -10,9 +10,9 @@ const Test = () => {
     return (
         <div>
             <div>
-                <TestHeader status={testStatus}/>
-                <TestQuestion status={testStatus}/>
-                <TestFooter status={testStatus}/>
+                <TestHeader />
+                <TestQuestion />
+                <TestFooter />
             </div>
         </div>
     );
