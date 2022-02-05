@@ -1,4 +1,6 @@
+import { useAppContext } from "../../../firebase/contextHook";
 const TestFooter = () => {
+    const { testStatus } = useAppContext();
 /**
  * if status = "startP"
  * "Start Test" button
@@ -12,8 +14,44 @@ const TestFooter = () => {
  * "Buy Certificate" button
  */
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', paddingTop: '10px' }}>
-            <button>NextQuestion</button>
+        <div>
+            {(() => {
+                switch (testStatus) {
+                    case 'startStage':
+                        return (
+                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
+                                <button>Start Test</button>
+                            </div>);
+                    case 'firstQuestionStage':
+                        return (
+                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
+                                <button>Next</button>
+                            </div>);
+                    case 'midQuestionStage':
+                        return (
+                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
+                                <button>Previous</button>
+                                <button>Next</button>
+                            </div>);
+                    case 'finalQuestionStage':
+                        return (
+                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
+                                <button>Previous</button>
+                                <button>Submit</button>
+                            </div>);
+                    case 'resultStage':
+                        return (
+                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
+                                <div> These are your results</div>
+                            </div>);
+                    default:
+                        return (
+                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
+                                <button>Start Test</button>
+                            </div>);
+                }
+            
+        })()}
         </div>
     );
 }
