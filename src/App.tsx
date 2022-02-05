@@ -1,24 +1,24 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
+import Test from "./components/Test";
 
 import { DataProvider } from "./context/contextHook";
 
 function App() {
+	const [showQuestion, setShowQuestion] = useState(false);
 	return (
 		<div className='App'>
 			<DataProvider>
-				<header className='App-header'>
-					<img src={logo} className='App-logo' alt='logo' />
-					<a
-						className='App-link'
-						href='https://reactjs.org'
-						target='_blank'
-						rel='noopener noreferrer'
-					>
-						Learn React
-					</a>
-				</header>
+				<button onClick={() => setShowQuestion(!showQuestion)}>
+					Show Question
+				</button>
+				{!showQuestion ? (
+					<div>
+						<h2>Welcome to Bela Testing</h2>
+					</div>
+				) : (
+					<Test />
+				)}
 			</DataProvider>
 		</div>
 	);

@@ -9,7 +9,7 @@ import {
 	getQuestions,
 } from "../firebase/firebase-utils";
 
-import { CryptoJS, AES } from "crypto-js";
+import { CryptoJS, AES, enc } from "crypto-js";
 
 const DataContext = createContext();
 
@@ -55,7 +55,7 @@ const DataProvider = props => {
 	function decryptQuestion(questionNumber) {
 		const questions = sessionStorage.getItem("data");
 		const bytes = AES.decrypt(questions, `${process.env.REACT_APP_CRYPTO_KEY}`);
-		const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+		const decryptedData = JSON.parse(bytes.toString(enc.Utf8));
 		const question = decryptedData[questionNumber];
 
 		console.log(question);
@@ -64,7 +64,10 @@ const DataProvider = props => {
 	}
 
 	return (
-		<DataContext.Provider value={{ setLevel, setOfQuestions }} {...props} />
+		<DataContext.Provider
+			value={{ setLevel, setOfQuestions, decryptQuestion }}
+			{...props}
+		/>
 	);
 };
 
