@@ -15,12 +15,15 @@ const TestQuestion = () => {
         switch (testStatus) {
           case 'startStage':
             return (
-              <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', justifyContent:'center' }} >
+              <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', justifyContent: 'center' }} >
                 <div> Instructions</div>
               </div>);
           case 'firstQuestionStage':
+          case 'midQuestionStage':
+          case 'finalQuestionStage':
             return (
               <div>
+                <div>Question: What is the answer for this?</div>
                 <div style={{ left: 0, display: 'flex', flexDirection: 'column' }}>
                   <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice A</div>
                   <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice B</div>
@@ -29,27 +32,8 @@ const TestQuestion = () => {
                 </div>
               </div>
             );
-          case 'midQuestionStage':
-            return (
-              <div>
-                <div style={{ left: 0, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice A</div>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice B</div>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice C</div>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice D</div>
-                </div>
-              </div>
-              );
-          case 'finalQuestionStage':
-            return (
-              <div>
-                <div style={{ left: 0, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice A</div>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice B</div>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice C</div>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice D</div>
-                </div>
-              </div>);
+
+
           case 'resultStage':
             return (
               <div>
