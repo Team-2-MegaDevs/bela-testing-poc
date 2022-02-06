@@ -8,8 +8,8 @@ const Test = () => {
     // 
     
     return (
-        <div>
-            <div>
+        <div style={{ display: 'flex', justifyContent:'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '10px', maxWidth:'800px', width:'90%' }}>
                 <TestHeader />
                 <TestQuestion />
                 <TestFooter />

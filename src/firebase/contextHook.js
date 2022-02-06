@@ -26,6 +26,7 @@ const DataProvider = props => {
 
 	// fetching 10 A1 grammar questions once the app starts
 	useEffect(() => {
+		console.log(testQuestionCount)
 		if (testType === "grammar") {
 			getQuestions("grammarQuestions", "A1", 10).then(questions => {
 				setQuestions(questions);

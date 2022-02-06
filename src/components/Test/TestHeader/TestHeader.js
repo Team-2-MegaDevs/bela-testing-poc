@@ -13,8 +13,8 @@ const TestHeader = () => {
                 switch (testStatus) {
                     case 'startStage':
                         return (
-                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
-                                <div> Welcome to Bela</div>
+                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', justifyContent:'center' }} >
+                                <div > Welcome to Bela</div>
                             </div>);
                     case 'firstQuestionStage':
                         return (
@@ -51,12 +51,12 @@ const TestHeader = () => {
                             </div>);
                     case 'resultStage':
                         return (
-                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
+                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', justifyContent:'center' }} >
                                 <div> These are your results</div>
                             </div>);
                     default:
                         return (
-                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
+                            <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', justifyContent:'center' }} >
                                 <div> Welcome to Bela</div>
                             </div>);
                 }

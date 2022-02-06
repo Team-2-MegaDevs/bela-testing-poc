@@ -15,7 +15,7 @@ const TestQuestion = () => {
         switch (testStatus) {
           case 'startStage':
             return (
-              <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
+              <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', justifyContent:'center' }} >
                 <div> Instructions</div>
               </div>);
           case 'firstQuestionStage':
