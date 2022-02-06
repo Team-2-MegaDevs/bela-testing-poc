@@ -15,20 +15,21 @@ const TestQuestion = () => {
         switch (testStatus) {
           case 'startStage':
             return (
-              <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', justifyContent: 'center' }} >
+              <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', justifyContent: 'center', alignItems: 'center', height:'100px' }} >
                 <div> Instructions</div>
               </div>);
           case 'firstQuestionStage':
           case 'midQuestionStage':
           case 'finalQuestionStage':
             return (
-              <div>
-                <div>Question: What is the answer for this?</div>
-                <div style={{ left: 0, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice A</div>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice B</div>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice C</div>
-                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px' }}>Choice D</div>
+              <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '10px', justifyContent: 'center', height:'400px' }}>
+                <div>Choose ONE correct answer</div>
+                <div>I live ______ London.</div>
+                <div style={{ left: 0, display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px', width:'90%' }}>Choice A</div>
+                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px', width:'90%' }}>Choice B</div>
+                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px', width:'90%' }}>Choice C</div>
+                  <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px', paddingTop: '10px', paddingLeft: '10px', border: 'solid', borderRadius: '10px', margin: '5px', width:'90%' }}>Choice D</div>
                 </div>
               </div>
             );

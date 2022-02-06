@@ -15,7 +15,7 @@ const TestFooter = () => {
     const { testStatus, setTestStatus, testQuestionCount, setTestQuestionCount } = useAppContext();
 
     function startTest() {
-        setTestQuestionCount(testQuestionCount + 1)
+        setTestQuestionCount(1)
         updateTestStatus()
         console.log(testQuestionCount)
     }
