@@ -2,17 +2,11 @@ import TestTimer from './TestTimer'
 import TestStatusBar from './TestStatusBar'
 import { useAppContext } from "../../../firebase/contextHook";
 const TestHeader = () => {
-    const { testStatus } = useAppContext();
-    /**
-     * if status = "startStage"
-     * " Welcome to BELA "
-     * 
-     * if testStatus = "firstQuestionStage" or "midQuestionStage" or "finalQuestionStage"
-     * <Status bar/> + <Timer/>
-     * if testStatus = "resultStage"
-     * " This is your result"
-     */
-
+    const { testStatus, setTestStatus, testQuestionCount, setTestQuestionCount } = useAppContext();
+    function cancelTest() {
+        setTestStatus('startStage')
+        setTestQuestionCount(0)
+    }
     return (
         <div>
             {(() => {
@@ -26,7 +20,7 @@ const TestHeader = () => {
                         return (
                             <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
                                 <div style={{ width: "50%", display: 'flex', flexDirection: 'row' }}>
-                                    <button>Cancel Test</button>
+                                    <button onClick = {cancelTest}>Cancel Test</button>
                                 </div>
                                 <div style={{ width: "50%", display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: "center" }}>
                                     <TestStatusBar />

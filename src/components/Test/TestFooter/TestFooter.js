@@ -43,7 +43,7 @@ const TestFooter = () => {
     }
     function resetTest() {
         setTestStatus('startStage')
-        testQuestionCount(0)
+        setTestQuestionCount(0)
     }
 
     
