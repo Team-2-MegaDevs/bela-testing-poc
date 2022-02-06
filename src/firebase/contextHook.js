@@ -17,6 +17,8 @@ const DataProvider = props => {
 
 	const [testStatus, setTestStatus] = useState("startStage");
 
+	const [testQuestionCount, setTestQuestionCount] = useState(0);
+
 	// (A1,A2,B1,B2,C1);
 	// Grammar - 49 questions - Approximately 10 questions per level
 	// Reading - 27 questions - Approximately 5 questions per level
@@ -45,7 +47,7 @@ const DataProvider = props => {
 	}, [level]);
 
 	return (
-		<DataContext.Provider value={{ setLevel, setOfQuestions }} {...props} />
+		<DataContext.Provider value={{ setLevel, setOfQuestions, testStatus, setTestStatus, testQuestionCount, setTestQuestionCount }} {...props} />
 	);
 };
 
