@@ -9,7 +9,7 @@ import {
 	getQuestions,
 } from "../firebase/firebase-utils";
 
-import { CryptoJS, AES, enc } from "crypto-js";
+import { AES, enc } from "crypto-js";
 
 const DataContext = createContext();
 
@@ -17,7 +17,8 @@ const DataProvider = props => {
 	const [testType, setTestType] = useState("grammar");
 	const [level, setLevel] = useState("A1");
 
-	const [setOfQuestions, setQuestions] = useSessionStorage("data", []);
+	const [setOfQuestions, setQuestions] = useSessionStorage("data", "");
+	const [userProgress, setUserProgress] = useSessionStorage("user", null);
 
 	// (A1,A2,B1,B2,C1);
 	// Grammar - 49 questions - Approximately 10 questions per level
@@ -29,12 +30,8 @@ const DataProvider = props => {
 		if (testType === "grammar") {
 			getQuestions("grammarQuestions", "A1", 10).then(questions => {
 				// stringfying and encrypting the object before saving to the section storage
-				const encryptedQuestions = AES.encrypt(
-					JSON.stringify(questions),
-					`${process.env.REACT_APP_CRYPTO_KEY}`
-				).toString();
+				const encryptedQuestions = encryptData(questions);
 				setQuestions(encryptedQuestions);
-				console.log(questions);
 			});
 		}
 		// getAllSets(testType, level).then(setList => {
@@ -51,21 +48,64 @@ const DataProvider = props => {
 		// });
 	}, [level]);
 
-	//this function is used to access each individually question from session storage and decrypt it.
-	function decryptQuestion(questionNumber) {
-		const questions = sessionStorage.getItem("data");
-		const bytes = AES.decrypt(questions, `${process.env.REACT_APP_CRYPTO_KEY}`);
-		const decryptedData = JSON.parse(bytes.toString(enc.Utf8));
-		const question = decryptedData[questionNumber];
+	//functions to encrypt and decrypt data
+	function encryptData(data) {
+		const encryptedData = AES.encrypt(
+			JSON.stringify(data),
+			`${process.env.REACT_APP_CRYPTO_KEY}`
+		).toString();
 
-		console.log(question);
+		return encryptedData;
+	}
+
+	function decryptData(data) {
+		const bytes = AES.decrypt(data, `${process.env.REACT_APP_CRYPTO_KEY}`);
+		console.log(bytes);
+		return JSON.parse(bytes.toString(enc.Utf8));
+	}
+
+	// this function is used to access each individually question from session storage and decrypt it.
+	function decryptQuestion(questionNumber) {
+		const decryptedData = decryptData(setOfQuestions);
+		const question = decryptedData[questionNumber];
 
 		return question;
 	}
 
+	// this function will be used to create the user progress object, track their correct answers,
+	// encrypt it and save to session storage.
+	// the validation of the correct answer needs to be done inside the component, this function takes two arguments
+	// the questionID and a boolean that indicates if the questions was answered correctly or not.
+	function testTakerProgress(questionID, isTheAnswerCorrect) {
+		//create a new object and encrypt it
+		const userProgressObj = {};
+		userProgressObj[questionID] = isTheAnswerCorrect;
+		console.log(userProgressObj);
+
+		//if we have an user progress object already created
+		if (userProgress) {
+			const currentProgress = decryptData(userProgress);
+			console.log(currentProgress);
+
+			//if we have the questionId already saved, we will not save the user progress
+			if (currentProgress.some(question => question[questionID])) {
+				console.log(`The question ${questionID} has already been saved`);
+				return;
+			}
+
+			const newProgress = [userProgressObj, ...currentProgress];
+			setUserProgress(encryptData(newProgress));
+		} else {
+			//we don't have an user progress created
+			const progressArray = [];
+			progressArray.push(userProgressObj);
+			setUserProgress(encryptData(progressArray));
+		}
+	}
+
 	return (
 		<DataContext.Provider
-			value={{ setLevel, setOfQuestions, decryptQuestion }}
+			value={{ setLevel, setOfQuestions, decryptQuestion, testTakerProgress }}
 			{...props}
 		/>
 	);
