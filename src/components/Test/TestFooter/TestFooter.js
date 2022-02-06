@@ -41,6 +41,10 @@ const TestFooter = () => {
     function submitTest() {
         setTestStatus('resultStage')
     }
+    function resetTest() {
+        setTestStatus('startStage')
+        testQuestionCount(0)
+    }
 
     
 
@@ -75,6 +79,7 @@ const TestFooter = () => {
                             <div style={{ display: 'flex', flexDirection: 'row', paddingBottom: '10px' }} >
                                 <div> These are your results</div>
                                 <button>Buy Certification</button>
+                                <button  onClick={resetTest}>Back to Start</button>
                             </div>);
                     default:
                         return (
