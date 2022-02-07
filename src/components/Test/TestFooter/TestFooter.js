@@ -1,4 +1,4 @@
-import { useAppContext } from "../../../hooks/contextHook";
+import { useAppContext } from "../../../context/contextHook";
 /**
  *  Start button click displays Next Question for first question
  * 
