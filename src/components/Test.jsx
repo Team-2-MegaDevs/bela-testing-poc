@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/contextHook";
-
+import TestHeader from './Test/TestHeader/TestHeader'
+import TestQuestion from './Test/TestQuestion/TestQuestion'
+import TestFooter from './Test/TestFooter/TestFooter'
 export default function Test() {
 	const [question, setQuestion] = useState(null);
 	const [questionID, setID] = useState("");
@@ -31,6 +33,13 @@ export default function Test() {
 				<>
 					<p>This is the the question ID: {questionID}</p>
 					<h3>{question[questionID].question}</h3>
+					<div style={{ display: 'flex', justifyContent: 'center' }}>
+						<div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '10px', maxWidth: '800px', width: '90%' }}>
+							<TestHeader />
+							<TestQuestion />
+							<TestFooter />
+						</div>
+					</div>
 					<form onSubmit={handleForm}>
 						{question[questionID].options.map((option, index) => (
 							<div className='radio' key={index}>
@@ -52,6 +61,7 @@ export default function Test() {
 					</form>
 				</>
 			)}
+
 		</div>
 	);
 }

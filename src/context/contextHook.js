@@ -17,7 +17,7 @@ const DataProvider = props => {
 	const [testType, setTestType] = useState("grammar");
 	const [level, setLevel] = useState("A1");
 
-	const [setOfQuestions, setQuestions] = useSessionStorage("data", "");
+	const [setOfQuestions, setQuestions] = useSessionStorage("data", null);
 	const [userProgress, setUserProgress] = useSessionStorage("user", null);
 
 	// (A1,A2,B1,B2,C1);
@@ -26,13 +26,17 @@ const DataProvider = props => {
 	// Listening - 24 questions - Approximately 5 questions per level
 
 	// fetching 10 A1 grammar questions once the app starts
+	// if we have the questions already saved on session storage, we will use them.
 	useEffect(() => {
-		if (testType === "grammar") {
-			getQuestions("grammarQuestions", "A1", 10).then(questions => {
-				// stringfying and encrypting the object before saving to the section storage
-				const encryptedQuestions = encryptData(questions);
-				setQuestions(encryptedQuestions);
-			});
+		if (!setOfQuestions) {
+			console.log("fetching the questions to the database");
+			if (testType === "grammar") {
+				getQuestions("grammarQuestions", "A1", 10).then(questions => {
+					// stringfying and encrypting the object before saving to the section storage
+					const encryptedQuestions = encryptData(questions);
+					setQuestions(encryptedQuestions);
+				});
+			}
 		}
 		// getAllSets(testType, level).then(setList => {
 		// 	console.log(setList);
@@ -60,7 +64,6 @@ const DataProvider = props => {
 
 	function decryptData(data) {
 		const bytes = AES.decrypt(data, `${process.env.REACT_APP_CRYPTO_KEY}`);
-		console.log(bytes);
 		return JSON.parse(bytes.toString(enc.Utf8));
 	}
 
@@ -68,7 +71,6 @@ const DataProvider = props => {
 	function decryptQuestion(questionNumber) {
 		const decryptedData = decryptData(setOfQuestions);
 		const question = decryptedData[questionNumber];
-
 		return question;
 	}
 

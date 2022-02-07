@@ -11,7 +11,7 @@ function App() {
 		<div className='App'>
 			<DataProvider>
 				<button onClick={() => setShowQuestion(!showQuestion)}>
-					Show Question
+					Start Test
 				</button>
 				{!showQuestion ? (
 					<div>

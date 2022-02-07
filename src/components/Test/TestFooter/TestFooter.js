@@ -1,4 +1,4 @@
-import { useAppContext } from "../../../firebase/contextHook";
+import { useAppContext } from "../../../hooks/contextHook";
 /**
  *  Start button click displays Next Question for first question
  * 
