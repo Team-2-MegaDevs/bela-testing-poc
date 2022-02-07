@@ -3,6 +3,7 @@ import TestStatusBar from './TestStatusBar'
 import { useAppContext } from "../../../context/contextHook";
 const TestHeader = () => {
     const { testStatus, setTestStatus, testQuestionCount, setTestQuestionCount } = useAppContext();
+    const hoursMinSecs = {hours:1, minutes: 20, seconds: 40}
     function cancelTest() {
         setTestStatus('startStage')
         setTestQuestionCount(0)
@@ -25,7 +26,7 @@ const TestHeader = () => {
                                 </div>
                                 <div style={{ width: "50%", display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: "center" }}>
                                     <TestStatusBar />
-                                    <TestTimer />
+                                    <TestTimer hoursMinSecs={hoursMinSecs}/>
                                 </div>
                             </div>);
                     case 'midQuestionStage':
