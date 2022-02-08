@@ -10,7 +10,7 @@ const Test = () => {
 
 	const [question, setQuestion] = useState(null);
 	const [questionID, setID] = useState("");
-	const [checkedOption, setCheckedOption] = useState(null);
+	const [checkedOption, setCheckedOption] = useState(0);
 
 	const context = useAppContext();
 
@@ -54,6 +54,7 @@ const Test = () => {
 				<TestHeader />
 				<TestQuestion
 					setCheckedOption={setCheckedOption}
+					checkedOption={checkedOption}
 					question={question}
 					questionID={questionID}
 				/>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useAppContext } from "../../../context/contextHook";
 
 const TestQuestion = ({
@@ -61,7 +62,7 @@ const TestQuestion = ({
 													<input
 														type='radio'
 														value={index}
-														checked={checkedOption ? true : false}
+														checked={checkedOption === index ? true : false}
 														onChange={ev => {
 															console.log(index);
 															setCheckedOption(index);
