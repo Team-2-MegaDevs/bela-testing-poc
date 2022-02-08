@@ -17,12 +17,15 @@ const Test = () => {
 	const { decryptQuestion, testTakerProgress, testQuestionCount } = context;
 
 	useEffect(() => {
+		console.log(testQuestionCount, "this is the testQuestionCount");
 		//test for the first question
-		const question = decryptQuestion(testQuestionCount);
-		setQuestion(question);
-		setID(Object.keys(question));
-		console.log(question);
-	}, []);
+		if (testQuestionCount !== 0) {
+			const question = decryptQuestion(testQuestionCount);
+			setQuestion(question);
+			setID(Object.keys(question));
+			console.log(question);
+		}
+	}, [testQuestionCount]);
 
 	useEffect(() => {
 		console.log(checkedOption);

@@ -52,7 +52,7 @@ const TestQuestion = ({
 
 						return (
 							<>
-								<h3>{question[questionID].question}</h3>
+								<h3>{question && question[questionID].question}</h3>
 								<form>
 									{question &&
 										question[questionID].options.map((option, index) => (
