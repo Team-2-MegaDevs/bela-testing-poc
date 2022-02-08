@@ -19,9 +19,12 @@ const DataProvider = props => {
 
 	const [setOfQuestions, setQuestions] = useSessionStorage("data", null);
 	const [userProgress, setUserProgress] = useSessionStorage("user", null);
-	
+
 	const [testStatus, setTestStatus] = useState("startStage");
 	const [testQuestionCount, setTestQuestionCount] = useState(0);
+
+	//max questions will change based on the testType;
+	const [maxQuestions, setMaxQuestions] = useState(10);
 
 	// (A1,A2,B1,B2,C1);
 	// Grammar - 49 questions - Approximately 10 questions per level
@@ -34,7 +37,7 @@ const DataProvider = props => {
 		if (!setOfQuestions) {
 			console.log("fetching the questions to the database");
 			if (testType === "grammar") {
-				getQuestions("grammarQuestions", "A1", 10).then(questions => {
+				getQuestions("grammarQuestions", "A1", maxQuestions).then(questions => {
 					// stringfying and encrypting the object before saving to the section storage
 					const encryptedQuestions = encryptData(questions);
 					setQuestions(encryptedQuestions);
@@ -110,7 +113,17 @@ const DataProvider = props => {
 
 	return (
 		<DataContext.Provider
-			value={{ setLevel, setOfQuestions, decryptQuestion, testTakerProgress, testStatus, setTestStatus, testQuestionCount, setTestQuestionCount  }}
+			value={{
+				setLevel,
+				setOfQuestions,
+				decryptQuestion,
+				testTakerProgress,
+				testStatus,
+				setTestStatus,
+				testQuestionCount,
+				setTestQuestionCount,
+				maxQuestions,
+			}}
 			{...props}
 		/>
 	);
