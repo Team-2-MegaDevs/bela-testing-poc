@@ -11,7 +11,13 @@ import { useAppContext } from "../../../context/contextHook";
  *
  *
  */
-const TestFooter = () => {
+const TestFooter = ({
+	isCorrectAnswer,
+	testTakerProgress,
+	question,
+	checkedOption,
+	questionID,
+}) => {
 	const {
 		testStatus,
 		setTestStatus,
@@ -23,8 +29,10 @@ const TestFooter = () => {
 	function startTest() {
 		setTestQuestionCount(1);
 	}
-	function nextQuestion() {
+	async function nextQuestion() {
 		setTestQuestionCount(testQuestionCount + 1);
+		const correct = await isCorrectAnswer(checkedOption, question);
+		testTakerProgress(questionID, correct);
 		updateTestStatus();
 		console.log(testQuestionCount);
 	}
