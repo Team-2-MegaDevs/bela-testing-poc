@@ -10,20 +10,23 @@ const Test = () => {
 
 	const [question, setQuestion] = useState(null);
 	const [questionID, setID] = useState("");
-	const [checkedOption, setCheckedOption] = useState(0);
+	const [checkedOption, setCheckedOption] = useState(null);
 
 	const context = useAppContext();
 
-	const { decryptQuestion, testTakerProgress, testQuestionCount } = context;
+	const { decryptQuestion, testQuestionCount, maxQuestions } = context;
 
 	useEffect(() => {
 		console.log(testQuestionCount, "this is the testQuestionCount");
 		//test for the first question
-		if (testQuestionCount !== 0) {
+		if (testQuestionCount > 0 && testQuestionCount < maxQuestions) {
 			const question = decryptQuestion(testQuestionCount);
 			setQuestion(question);
 			setID(Object.keys(question));
 			console.log(question);
+
+			//resetting the checkedOption value
+			setCheckedOption(null);
 		}
 	}, [testQuestionCount]);
 
@@ -32,7 +35,7 @@ const Test = () => {
 	}, [checkedOption]);
 
 	function isCorrectAnswer(checkOpt, question) {
-		const correctAnswer = question.correct_answer;
+		const correctAnswer = question[questionID].correct_answer;
 		if (correctAnswer === checkOpt) {
 			return true;
 		}
@@ -59,11 +62,10 @@ const Test = () => {
 					questionID={questionID}
 				/>
 				<TestFooter
-					testTakerProgress={testTakerProgress}
 					isCorrectAnswer={isCorrectAnswer}
 					checkedOption={checkedOption}
 					question={question}
-					questionId={questionID}
+					questionID={questionID}
 				/>
 			</div>
 		</div>

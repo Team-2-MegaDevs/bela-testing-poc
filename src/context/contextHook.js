@@ -58,6 +58,10 @@ const DataProvider = props => {
 		// });
 	}, [level]);
 
+	useEffect(() => {
+		console.log(userProgress);
+	}, [userProgress]);
+
 	//functions to encrypt and decrypt data
 	function encryptData(data) {
 		const encryptedData = AES.encrypt(
@@ -88,7 +92,6 @@ const DataProvider = props => {
 		//create a new object and encrypt it
 		const userProgressObj = {};
 		userProgressObj[questionID] = isTheAnswerCorrect;
-		console.log(userProgressObj);
 
 		//if we have an user progress object already created
 		if (userProgress) {

@@ -13,7 +13,6 @@ import { useAppContext } from "../../../context/contextHook";
  */
 const TestFooter = ({
 	isCorrectAnswer,
-	testTakerProgress,
 	question,
 	checkedOption,
 	questionID,
@@ -21,6 +20,7 @@ const TestFooter = ({
 	const {
 		testStatus,
 		setTestStatus,
+		testTakerProgress,
 		testQuestionCount,
 		setTestQuestionCount,
 		maxQuestions,
@@ -61,7 +61,6 @@ const TestFooter = ({
 	}
 
 	useEffect(() => {
-		console.log({ maxQuestions });
 		updateTestStatus();
 	}, [testQuestionCount, maxQuestions, testStatus]);
 
