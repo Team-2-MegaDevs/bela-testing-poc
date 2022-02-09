@@ -6,7 +6,7 @@ import React from 'react'
 
 export default function TestTimer({hoursMinSecs}){
    
-    const { hours = 0, minutes = 0, seconds = 60 } = hoursMinSecs;
+    const { hours = 0, minutes = 40, seconds = 0 } = hoursMinSecs;
     const [[hrs, mins, secs], setTime] = React.useState([hours, minutes, seconds]);
     
 
@@ -35,9 +35,9 @@ export default function TestTimer({hoursMinSecs}){
     
     return (
         <div>
-            <p>{`${hrs.toString().padStart(2, '0')}:${mins
+            <div style={{display:'flex', alignItems: 'center', paddingLeft: '10px'}}>{`${hrs.toString().padStart(2, '0')}:${mins
             .toString()
-            .padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</p> 
+            .padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</div> 
         </div>
     );
 }

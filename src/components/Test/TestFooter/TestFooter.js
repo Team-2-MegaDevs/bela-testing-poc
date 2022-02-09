@@ -73,7 +73,7 @@ const TestFooter = () => {
               >
                 <button
                   style={{
-                    width: "200px",
+                    width: "100px",
                     height: "50px",
                     borderRadius: "5px",
                     backgroundColor: "black",
@@ -82,7 +82,7 @@ const TestFooter = () => {
                     fontWeight: "bold",
                   }}
                 >
-                  Start Assessment
+                  Start
                 </button>
               </div>
             );
@@ -99,7 +99,7 @@ const TestFooter = () => {
                 <button
                   onClick={startTest}
                   style={{
-                    width: "200px",
+                    width: "100px",
                     height: "50px",
                     borderRadius: "5px",
                     backgroundColor: "black",
@@ -108,7 +108,7 @@ const TestFooter = () => {
                     fontWeight: "bold",
                   }}
                 >
-                  Start Assessment
+                  Start 
                 </button>
               </div>
             );
@@ -126,7 +126,7 @@ const TestFooter = () => {
                 <button
                   onClick={nextQuestion}
                   style={{
-                    width: "200px",
+                    width: "100px",
                     height: "50px",
                     borderRadius: "5px",
                     backgroundColor: "black",
@@ -182,7 +182,7 @@ const TestFooter = () => {
                   <button
                     onClick={nextQuestion}
                     style={{
-                      width: "200px",
+                      width: "100px",
                       height: "50px",
                       borderRadius: "5px",
                       backgroundColor: "black",
@@ -213,7 +213,7 @@ const TestFooter = () => {
                   }}
                 >
                   <button onClick={previousQuestion} style={{
-                    width: "200px",
+                    width: "100px",
                     height: "50px",
                     borderRadius: "5px",
                     backgroundColor: "black",
@@ -232,7 +232,7 @@ const TestFooter = () => {
                   }}
                 >
                   <button onClick={submitTest} style={{
-                    width: "200px",
+                    width: "100px",
                     height: "50px",
                     borderRadius: "5px",
                     backgroundColor: "black",

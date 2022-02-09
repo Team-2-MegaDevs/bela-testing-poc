@@ -84,12 +84,14 @@ const TestQuestion = ({
                             display: "flex",
                             justifycontent: "flext-start",
                             alignItems: "center",
-                            paddingBottom: "10px",
+                            
                             fontSize: "20px",
                             width: "300px",
-                            backgroundColor: "grey",
                             borderRadius: "5px",
                             marginBottom: "10px",
+                            border: 'solid',
+                            paddingBottom: '10px',
+                            paddingTop: '10px'
                           }}
                         >
                           <input
