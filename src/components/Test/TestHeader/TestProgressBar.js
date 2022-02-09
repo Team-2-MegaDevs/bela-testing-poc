@@ -1,13 +1,12 @@
-import { CProgress , CProgressBar } from '@coreui/react'
 
+import { CProgress, CProgressBar } from "@coreui/react";
+import "@coreui/coreui/dist/css/coreui.min.css";
+import "./TestProgressBarStyle.css";
 
-const TestProgressBar = () => {
-    return ( 
-    <div>
-        <CProgress className="mb-3" >
-            <CProgressBar color="success" value={25}/>
-        </CProgress>
-    </div> );
+export default function TestProgressBar() {
+  return (
+    <CProgress className="progress">
+      <CProgressBar color="success" value={25} />
+    </CProgress>
+  );
 }
- 
-export default TestProgressBar;
