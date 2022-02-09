@@ -1,4 +1,36 @@
-This application is a Proof of Concept for SpeakHabla's dynamic assessment 
+# BELA Testing Proof of Concept
 
-Assessment length is 40 minutes with 10 questions 
+# Description
 
+This is the first iteration of the BELA Testing Application. This Proof of Concept shows the dynamic testing algorithm that MegaDevs team is developing
+for Speak Habla. **For the purpose of testing, we are only making the first 10 grammar questions available.**
+
+## Technologies Used
+
+- React JS
+- Crypto.js
+- Session Storage
+- React CoreUI
+- Firebase SDK
+
+# Testing the Application
+
+## 1 - Clone the repo
+
+```
+git clone [repoLink]
+```
+
+## 2 - Change Directory to the project folder
+
+```
+cd [projectDirectory]
+```
+
+## 3 - create a .env file in the project root folder
+
+Paste the environment variables shared with you inside the `.env` file you created.
+
+## 4 - Run the Application
+
+Run the command `yarn start` to run the application.
