@@ -4,7 +4,7 @@ import { useAppContext } from "../../../context/contextHook";
 const TestHeader = () => {
 	const { testStatus, setTestStatus, testQuestionCount, setTestQuestionCount } =
 		useAppContext();
-	const hoursMinSecs = { hours: 1, minutes: 20, seconds: 40 };
+	const hoursMinSecs = { hours: 0, minutes: 40, seconds: 40 };
 
 	function cancelTest() {
 		setTestStatus("startStage");
@@ -26,7 +26,9 @@ const TestHeader = () => {
 									height: "100px",
 								}}
 							>
-								<div> Welcome to Bela</div>
+								<div style={{
+									fontSize: '30px'
+								}}> Assessment 1: Grammar and Vocabulary</div>
 							</div>
 						);
 
@@ -42,7 +44,9 @@ const TestHeader = () => {
 									height: "100px",
 								}}
 							>
-								<div> Welcome to Bela</div>
+								<div style={{
+									fontSize: '30px'
+								}}> Assessment 1: Grammar and Vocabulary</div>
 							</div>
 						);
 					case "firstQuestionStage":
@@ -65,7 +69,7 @@ const TestHeader = () => {
 										flexDirection: "row",
 									}}
 								>
-									<button onClick={cancelTest}>Cancel Test</button>
+									<button onClick={cancelTest} style={{width: '200px', height: '50px', borderRadius:'5px', backgroundColor: 'black', color: 'white', border: 'none', fontWeight: 'bold'}}>Cancel Test</button>
 								</div>
 								<div
 									style={{
