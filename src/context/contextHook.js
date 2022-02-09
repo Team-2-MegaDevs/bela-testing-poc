@@ -20,6 +20,15 @@ const DataProvider = props => {
 	const [setOfQuestions, setQuestions] = useSessionStorage("data", null);
 	const [userProgress, setUserProgress] = useSessionStorage("user", null);
 
+	const [testStatus, setTestStatus] = useState("startStage");
+	const [testQuestionCount, setTestQuestionCount] = useState(0);
+
+	//max questions will change based on the testType;
+	const [maxQuestions, setMaxQuestions] = useState(10);
+
+	//state variable that will hold the user score
+	const [userScore, setUserScore] = useState(0);
+
 	// (A1,A2,B1,B2,C1);
 	// Grammar - 49 questions - Approximately 10 questions per level
 	// Reading - 27 questions - Approximately 5 questions per level
@@ -31,7 +40,7 @@ const DataProvider = props => {
 		if (!setOfQuestions) {
 			console.log("fetching the questions to the database");
 			if (testType === "grammar") {
-				getQuestions("grammarQuestions", "A1", 10).then(questions => {
+				getQuestions("grammarQuestions", "A1", maxQuestions).then(questions => {
 					// stringfying and encrypting the object before saving to the section storage
 					const encryptedQuestions = encryptData(questions);
 					setQuestions(encryptedQuestions);
@@ -51,6 +60,25 @@ const DataProvider = props => {
 		// 	getDataFromDB(testType, level, `set${randomNumber}`);
 		// });
 	}, [level]);
+
+	useEffect(() => {
+		if (testQuestionCount === 0) {
+			console.log("clearing the user progress, test starting");
+			setUserProgress(null);
+		}
+	}, [testQuestionCount]);
+
+	//calculating the user score, once we reach the results stage
+	useEffect(() => {
+		if (testStatus === "resultStage") {
+			const correctAnswers = decryptData(userProgress).filter(
+				question => question.has_answered_correctly === true
+			).length;
+			const testScore = Math.floor((correctAnswers / maxQuestions) * 100);
+			console.log(`Your score is ${testScore * 100}%`);
+			setUserScore(testScore);
+		}
+	}, [testStatus]);
 
 	//functions to encrypt and decrypt data
 	function encryptData(data) {
@@ -80,34 +108,49 @@ const DataProvider = props => {
 	// the questionID and a boolean that indicates if the questions was answered correctly or not.
 	function testTakerProgress(questionID, isTheAnswerCorrect) {
 		//create a new object and encrypt it
-		const userProgressObj = {};
-		userProgressObj[questionID] = isTheAnswerCorrect;
-		console.log(userProgressObj);
+		const userProgressObj = {
+			question_id: questionID,
+			has_answered_correctly: isTheAnswerCorrect,
+		};
 
 		//if we have an user progress object already created
 		if (userProgress) {
-			const currentProgress = decryptData(userProgress);
-			console.log(currentProgress);
+			let currentProgress = decryptData(userProgress);
 
 			//if we have the questionId already saved, we will not save the user progress
-			if (currentProgress.some(question => question[questionID])) {
-				console.log(`The question ${questionID} has already been saved`);
-				return;
-			}
+			// if (
+			// 	currentProgress.some((question, index) => question[index].question_id)
+			// ) {
+			// 	console.log(`The question has already been saved`);
+			// 	return;
+			// }
 
-			const newProgress = [userProgressObj, ...currentProgress];
-			setUserProgress(encryptData(newProgress));
+			currentProgress = [userProgressObj, ...currentProgress];
+			setUserProgress(encryptData(currentProgress));
+			console.log(currentProgress);
 		} else {
 			//we don't have an user progress created
-			const progressArray = [];
+			let progressArray = [];
 			progressArray.push(userProgressObj);
 			setUserProgress(encryptData(progressArray));
+			console.log(progressArray);
 		}
 	}
 
 	return (
 		<DataContext.Provider
-			value={{ setLevel, setOfQuestions, decryptQuestion, testTakerProgress }}
+			value={{
+				setLevel,
+				setOfQuestions,
+				decryptQuestion,
+				testTakerProgress,
+				testStatus,
+				setTestStatus,
+				testQuestionCount,
+				setTestQuestionCount,
+				maxQuestions,
+				userScore,
+			}}
 			{...props}
 		/>
 	);
