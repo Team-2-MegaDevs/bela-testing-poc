@@ -22,7 +22,7 @@ const Test = () => {
 		if (testQuestionCount > 0 && testQuestionCount < maxQuestions) {
 			const question = decryptQuestion(testQuestionCount);
 			setQuestion(question);
-			setID(Object.keys(question));
+			setID(Object.keys(question).toString());
 			console.log(question);
 
 			//resetting the checkedOption value
