@@ -74,7 +74,7 @@ const DataProvider = props => {
 			const correctAnswers = decryptData(userProgress).filter(
 				question => question.has_answered_correctly === true
 			).length;
-			const testScore = (correctAnswers / maxQuestions) * 100;
+			const testScore = Math.floor((correctAnswers / maxQuestions) * 100);
 			console.log(`Your score is ${testScore * 100}%`);
 			setUserScore(testScore);
 		}

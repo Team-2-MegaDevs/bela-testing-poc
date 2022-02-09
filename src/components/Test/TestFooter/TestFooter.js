@@ -34,20 +34,18 @@ const TestFooter = ({
 		const correctAnswer = await isCorrectAnswer(checkedOption, question);
 		testTakerProgress(questionID, correctAnswer);
 		updateTestStatus();
-		console.log(testQuestionCount);
 	}
 	function previousQuestion() {
 		setTestQuestionCount(testQuestionCount - 1);
 		updateTestStatus();
-		console.log(testQuestionCount);
 	}
 	function updateTestStatus() {
 		if (testQuestionCount === 1) {
 			setTestStatus("firstQuestionStage");
 		}
-		if (testQuestionCount < maxQuestions - 1 && testQuestionCount > 1) {
+		if (testQuestionCount < maxQuestions && testQuestionCount > 1) {
 			setTestStatus("midQuestionStage");
-		} else if (testQuestionCount === maxQuestions - 1) {
+		} else if (testQuestionCount === maxQuestions) {
 			setTestStatus("finalQuestionStage");
 		}
 	}

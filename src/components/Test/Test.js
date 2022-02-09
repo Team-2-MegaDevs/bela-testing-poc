@@ -19,8 +19,8 @@ const Test = () => {
 	useEffect(() => {
 		console.log(testQuestionCount, "this is the testQuestionCount");
 		//test for the first question
-		if (testQuestionCount > 0 && testQuestionCount < maxQuestions) {
-			const question = decryptQuestion(testQuestionCount);
+		if (testQuestionCount > 0 && testQuestionCount <= maxQuestions) {
+			const question = decryptQuestion(testQuestionCount - 1);
 			setQuestion(question);
 			setID(Object.keys(question).toString());
 			console.log(question);
@@ -29,10 +29,6 @@ const Test = () => {
 			setCheckedOption(null);
 		}
 	}, [testQuestionCount]);
-
-	useEffect(() => {
-		console.log(checkedOption);
-	}, [checkedOption]);
 
 	function isCorrectAnswer(checkOpt, question) {
 		const correctAnswer = question[questionID].correct_answer;

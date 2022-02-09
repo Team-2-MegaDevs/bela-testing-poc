@@ -82,7 +82,7 @@ const TestQuestion = ({
 													style={{
 														zIndex: 3,
 														display: "flex",
-														justifycontent: "flext-start",
+														justifyContent: "flex-start",
 														alignItems: "center",
 
 														fontSize: "20px",
@@ -99,10 +99,7 @@ const TestQuestion = ({
 														type='radio'
 														value={index}
 														checked={checkedOption === index ? true : false}
-														onChange={ev => {
-															console.log(index);
-															setCheckedOption(index);
-														}}
+														onChange={() => setCheckedOption(index)}
 													/>
 													<div style={{ width: "100%" }}>{option}</div>
 												</label>
