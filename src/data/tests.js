@@ -5,10 +5,9 @@
 export const tests = {
 	reading: {
 		A1: {
-			
-			set1: {
-				reading:
+			reading:
 				"On Monday, Tom gets up at 7 o'clock. Then he reads his newspaper in the kitchen. He has breakfast at 8:30 and then he calls his boss in Scotland. In the afternoon, at 4:00, Tom plays tennis with his sister and after that, they eat dinner at a restaurant. At 6:00, Tom swims for one hour and then he goes by bike to his brother´s house. They talk and listen to music. Tom watches television in the evening and drinks a cup of warm tea. He goes to bed at 11.30.",
+			option1: {
 				questions: [
 					{
 						question: "Where does Tom have breakfast?",
@@ -60,7 +59,7 @@ export const tests = {
 					},
 				],
 			},
-			set2: {
+			option2: {
 				reading:
 					"On Monday, Tom gets up at 7 o'clock. Then he reads his newspaper in the kitchen. He has breakfast at 8:30 and then he calls his boss in Scotland. In the afternoon, at 4:00, Tom plays tennis with his sister and after that, they eat dinner at a restaurant. At 6:00, Tom swims for one hour and then he goes by bike to his brother´s house. They talk and listen to music. Tom watches television in the evening and drinks a cup of warm tea. He goes to bed at 11.30.",
 				questions: [
@@ -115,7 +114,7 @@ export const tests = {
 					},
 				],
 			},
-			set3: {
+			option3: {
 				reading:
 					"On Monday, Tom gets up at 7 o'clock. Then he reads his newspaper in the kitchen. He has breakfast at 8:30 and then he calls his boss in Scotland. In the afternoon, at 4:00, Tom plays tennis with his sister and after that, they eat dinner at a restaurant. At 6:00, Tom swims for one hour and then he goes by bike to his brother´s house. They talk and listen to music. Tom watches television in the evening and drinks a cup of warm tea. He goes to bed at 11.30.",
 				questions: [
@@ -170,13 +169,11 @@ export const tests = {
 					},
 				],
 			},
-			set4: {
+			option4: {
 				reading:
 					"Famous people’s first jobs Not all famous people were born into famous families. A lot of them had normal lives before becoming famous. They also had jobs like the rest of us. Here are just a few: Former President Obama worked at an ice-cream parlor selling ice-cream cones. He was in high school in Honolulu, Hawaii and said it was quite hard. He also said that the job taught him about responsibility, hard work and how to spend time with work, friends and family. Brad Pitt had a weird job when he was younger. He worked as a chicken! That’s right. He worked at a restaurant called El Pollo Loco in Hollywood, and his job was to dress up like a chicken and wave at the cars on the road. In fact, if you go on a “See the Stars” tour in Hollywood, many of them will take you past the same restaurant where Brad used to work. Maybe the strangest path in life was that of Pope Francis. When he was young in Argentina, he worked several jobs before joining the Jesuits and dedicating his life to religion. He worked as a cleaner sweeping floors, a chemical tester at a laboratory and as a bouncer at a bar! Yes, the pope was the person responsible for security at a bar in case anything wrong happened. Can you imagine?!",
 				questions: [
-
 					{
-
 						question: "Who helped protect people?",
 						options: ["President Obama", "Brad Pitt", "Pope Francis"],
 						isMultipleChoice: false,

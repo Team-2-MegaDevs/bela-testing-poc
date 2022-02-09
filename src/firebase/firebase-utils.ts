@@ -68,10 +68,8 @@ export async function sendDataInBatch(
 	const batch = writeBatch(db);
 
 	// Set the value of reading'
-
 	const docRef = doc(db, collection, document);
 	batch.set(docRef, dataToAdd);
-
 
 	// Commit the batch
 	await batch.commit();
