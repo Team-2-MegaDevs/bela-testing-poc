@@ -27,10 +27,16 @@ git clone [repoLink]
 cd [projectDirectory]
 ```
 
-## 3 - create a .env file in the project root folder
+## 3 - Install the packages
+
+```
+yarn install
+```
+
+## 4 - create a .env file in the project root folder
 
 Paste the environment variables shared with you inside the `.env` file you created.
 
-## 4 - Run the Application
+## 5 - Run the Application
 
 Run the command `yarn start` to run the application.
